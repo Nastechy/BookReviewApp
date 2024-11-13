@@ -1,7 +1,7 @@
 import React from "react";
-import "./globals.css";
 import TopNavBar from "@/Components/TopNavBar";
 import SideBar from "@/Components/SideBar";
+import './globals.css'
 
 interface RootLayoutProps {
   children: React.ReactNode;

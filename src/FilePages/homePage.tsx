@@ -9,11 +9,11 @@ interface BookListProps {
 
 const HomePage: React.FC<BookListProps> = ({ books }) => {
     return (
-        <div className='p-8'>
+        <div className='p-8' style={{border: '2px solid red'}}>
             <h1 className="text-3xl font-bold mb-6">Featured Books</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-[100%]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
                 {books.map((book) => (
-                    <Card key={book.id} className='w-[100%]'>
+                    <Card key={book.id}>
                         <CardHeader>
                             <CardTitle className='text-xl font-semibold'>{book.title}</CardTitle>
                         </CardHeader>
