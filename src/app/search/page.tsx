@@ -1,12 +1,12 @@
-import SearchPage from '@/Pages/searchPage'
-import React from 'react'
+'use client'
 
-const page = () => {
+import SearchContent from '@/Components/searchContent'
+import { Suspense } from 'react'
+
+export default function Page() {
   return (
-    <div>
-      <SearchPage/>
-    </div>
+    <Suspense fallback={<div className="p-4">Loading search page...</div>}>
+      <SearchContent />
+    </Suspense>
   )
 }
-
-export default page

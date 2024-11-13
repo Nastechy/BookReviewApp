@@ -1,4 +1,4 @@
-import HomePage from '@/Pages/homePage'
+import HomePage from '@/FilePages/homePage'
 import { BooksData } from '@/types/BooksData'
 import React from 'react'
 

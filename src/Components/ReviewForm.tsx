@@ -14,12 +14,14 @@ const reviewSchema = z.object({
   content: z.string().min(10, 'Review must be at least 10 characters long'),
 });
 
+type ReviewFormData = z.infer<typeof reviewSchema>;
+
 interface ReviewFormProps {
   bookId: string;
 }
 
 export default function ReviewForm({ bookId }: ReviewFormProps) {
-  const form = useForm({
+  const form = useForm<ReviewFormData>({
     resolver: zodResolver(reviewSchema),
     defaultValues: {
       name: '',
@@ -28,7 +30,7 @@ export default function ReviewForm({ bookId }: ReviewFormProps) {
     },
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ReviewFormData) => {
     console.log('Submitting review:', { bookId, ...data });
     form.reset();
   };
@@ -55,7 +57,13 @@ export default function ReviewForm({ bookId }: ReviewFormProps) {
             <FormItem>
               <FormLabel>Rating</FormLabel>
               <FormControl>
-                <Input type="number" min="1" max="5" {...field} onChange={(e) => field.onChange(parseInt(e.target.value, 10))} />
+                <Input
+                  type="number"
+                  min="1"
+                  max="5"
+                  {...field}
+                  onChange={(e) => field.onChange(parseInt(e.target.value, 10))}
+                />
               </FormControl>
             </FormItem>
           )}
